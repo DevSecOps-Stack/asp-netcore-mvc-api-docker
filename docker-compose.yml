@@ -23,4 +23,4 @@ services:
       ASPNETCORE_ENVIRONMENT: Production 
 networks:
   back:
-    driver: nat
+    driver: bridge
