@@ -1,0 +1,22 @@
+pool:
+  name: Carma_pool
+steps:
+- task: DockerCompose@0
+  displayName: 'Build services'
+  inputs:
+    azureSubscription: 'Dev (1cfd9c12-2c35-4462-a5f4-75403af97042)'
+    azureContainerRegistry: '{"loginServer":"carmaregistry.azurecr.io", "id" : "/subscriptions/1cfd9c12-2c35-4462-a5f4-75403af97042/resourceGroups/fico-RG/providers/Microsoft.ContainerRegistry/registries/Carmaregistry"}'
+    dockerComposeFile: 'docker-compose.yml'
+    action: 'Build services'
+    additionalImageTags: '$(build.buildid)'
+    includeLatestTag: true
+
+- task: DockerCompose@0
+  displayName: 'Push Docker image to ACR'
+  inputs:
+    azureSubscription: 'Dev (1cfd9c12-2c35-4462-a5f4-75403af97042)'
+    azureContainerRegistry: '{"loginServer":"carmaregistry.azurecr.io", "id" : "/subscriptions/1cfd9c12-2c35-4462-a5f4-75403af97042/resourceGroups/fico-RG/providers/Microsoft.ContainerRegistry/registries/Carmaregistry"}'
+    dockerComposeFile: 'docker-compose.yml'
+    action: 'Push services'
+    additionalImageTags: '$(build.buildid)'
+    includeLatestTag: true
