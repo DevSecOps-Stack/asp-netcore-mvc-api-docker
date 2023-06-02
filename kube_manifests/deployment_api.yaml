@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: carma_api
+  name: carma-api
   labels:
-    app: carma_api
+    app: carma-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: carma_api
+      app: carma-api
   template:
     metadata:
       labels:
-        app: carma_api
+        app: carma-api
     spec:
       containers:
-      - name: carma_api
+      - name: carma-api
         image: contosoprodacruwgwaefh.azurecr.io/carma_main-api:148
         ports:
         - containerPort: 80
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: carma_api
+  name: carma-api
 spec:
   type: ClusterIP
   selector:
-    app: carma_api
+    app: carma-api
   ports:
   - protocol: TCP
     port: 80
