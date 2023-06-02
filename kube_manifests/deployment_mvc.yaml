@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: carma_mvc
+  name: carma-mvc
   labels:
-    app: carma_mvc
+    app: carma-mvc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: carma_mvc
+      app: carma-mvc
   template:
     metadata:
       labels:
-        app: carma_mvc
+        app: carma-mvc
     spec:
       containers:
-      - name: carma_mvc
+      - name: carma-mvc
         image: contosoprodacruwgwaefh.azurecr.io/carma_main-mvc:148
         ports:
         - containerPort: 80
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: carma_mvc
+  name: carma-mvc
 spec:
   type: LoadBalancer
   selector:
-    app: carma_mvc
+    app: carma-mvc
   ports:
   - protocol: TCP
     port: 80
