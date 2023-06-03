@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: carma-mvc
-        image: akscontainerregistry1234.azurecr.io/carma_main-mvc:161
+        image: akscontainerregistry1234.azurecr.io/carma_main-mvc:latest
         ports:
         - containerPort: 80
 ---
