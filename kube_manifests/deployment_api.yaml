@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: carma-api
-        image: akscontainerregistry1234.azurecr.io/carma_main-api:161
+        image: akscontainerregistry1234.azurecr.io/carma_main-api:latest
         ports:
         - containerPort: 80
 ---
